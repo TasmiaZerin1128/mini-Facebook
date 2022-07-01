@@ -6,7 +6,7 @@
         <div class="col-2"></div>
         <div class="col-6">
             <div class="card">
-                <form>
+                <form action="#" class="login-form" [formGroup] = "loginForm">
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -28,7 +28,7 @@
                         <input type="password" class="form-control" id="Password" placeholder="Password">
                     </div>
                     <button type="submit" class="btn" style="background-color: #3b5998; color: white;">Login</button>
-                    <p class="card-text">Don't have an account? <a href="#" class="card-link">Create One</a></p>
+                    <p class="card-text">Don't have an account? <a [routerLink]="['register']" class="card-link">Create One</a></p>
                 </form>
             </div>
         </div>
