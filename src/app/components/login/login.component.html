@@ -15,7 +15,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                        <input type="email" class="form-control" id="Email" placeholder="Email" [(ngModel)]="email" formControlName="email">
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
@@ -25,9 +25,9 @@
                                 </svg>
                             </div>
                         </div> 
-                        <input type="password" class="form-control" id="Password" placeholder="Password">
+                        <input type="password" class="form-control" id="Password" placeholder="Password" [(ngModel)]="password" formControlName="password">
                     </div>
-                    <button type="submit" class="btn" style="background-color: #3b5998; color: white;">Login</button>
+                    <button type="submit" class="btn" style="background-color: #3b5998; color: white;" (click)="loginUser()">Login</button>
                     <p class="card-text">Don't have an account? <a [routerLink]="['register']" class="card-link">Create One</a></p>
                 </form>
             </div>

@@ -17,7 +17,7 @@
                                   </svg>
                             </div>
                         </div> 
-                        <input type="text" class="form-control" id="name" placeholder="Full Name">
+                        <input type="text" class="form-control" id="name" [(ngModel)]="name" formControlName="name" placeholder="Full Name">
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
@@ -27,7 +27,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                        <input type="email" class="form-control" id="Email" [(ngModel)]="email" formControlName="email" placeholder="Email">
                         
                     </div>
                     <div class="input-group mb-2">
@@ -38,7 +38,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <input type="password" class="form-control" id="Password" placeholder="Password">
+                        <input type="password" class="form-control" id="Password" [(ngModel)]="password" formControlName="password" placeholder="Password">
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
@@ -48,9 +48,9 @@
                                   </svg>
                             </div>
                         </div> 
-                        <input type="text" class="form-control" placeholder="Date of Birth" onfocus="(this.type='date')" onblur="(this.type='text')">
+                        <input type="text" class="form-control" placeholder="Date of Birth" [(ngModel)]="dob" formControlName="dob" onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
-                    <button type="submit" class="btn" style="background-color: #3b5998; color: white;">Create Account</button>
+                    <button type="submit" class="btn" style="background-color: #3b5998; color: white;" (click)="registerUser()">Create Account</button>
                     <p class="card-text">Already have an account? <a [routerLink]="['']" class="card-link">Log In</a></p>
                 </form>
             </div>
