@@ -23,7 +23,7 @@ form{
 }
 
 .card{
-    margin-top: 25%;
+    margin-top: 20%;
     padding: 20px;
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.14);
@@ -70,10 +70,6 @@ input:focus{
     color: white;
 }
 
-::placeholder { 
-    color: white;
-    opacity: 1;
-}
 
 .btn{
     padding: 10px;
@@ -100,4 +96,17 @@ input[type="date"]:in-range::-webkit-datetime-edit-text {
 
 ::placeholder{
     color:rgb(133, 154, 183);
+}
+
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    margin-top: 10px;
+    color:rgb(133, 154, 183);
+    border: 3px solid rgba(255, 255, 255, 0.29);
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
 }

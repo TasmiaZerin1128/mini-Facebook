@@ -1,5 +1,6 @@
-.container{
+:host {
     background-color: #3b5998;
+    height: 100vh;
 }
 
 img{
@@ -36,6 +37,7 @@ input{
     backdrop-filter: blur(5.4px);
     -webkit-backdrop-filter: blur(5.4px);
     border: 1px solid rgba(255, 255, 255, 0.29);
+    color: white;
 }
 
 input:focus{
@@ -48,9 +50,8 @@ input:focus{
     color: white;
 }
 
-::placeholder { 
-    color: white;
-    opacity: 1;
+::placeholder{
+    color:rgb(201, 210, 223);
 }
 
 .btn{

@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   email: string = '';
   password: string = '';
+  show: boolean = false;
 
   ngOnInit(): void {
   }
@@ -43,6 +44,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['home']);
       }
     })
+  }
+
+  showPassword() {
+    this.show = !this.show;
   }
 
 }

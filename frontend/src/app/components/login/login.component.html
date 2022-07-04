@@ -25,7 +25,7 @@
                                 </svg>
                             </div>
                         </div> 
-                        <input type="password" class="form-control" id="Password" placeholder="Password" [(ngModel)]="password" formControlName="password">
+                        <input type="password" [type]="show ? 'text' : 'password'" class="form-control" id="password" placeholder="Password" [(ngModel)]="password" formControlName="password">
                     </div>
                     <button type="submit" class="btn" style="background-color: #3b5998; color: white;" (click)="loginUser()">Login</button>
                     <p class="card-text">Don't have an account? <a [routerLink]="['register']" class="card-link">Create One</a></p>

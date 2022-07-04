@@ -1,3 +1,148 @@
-:host{
-    background-color: white;
+.container{
+    margin: 10px;
+    align-items: center;
+}
+
+.stories{
+    margin-left: 30%;
+    display:inline-flex;
+}
+
+.card, .card-img, .card-img-overlay{
+    border: transparent;
+    border-radius: 10px;
+}
+.others{
+    display:inline-flex;
+    margin-top: 30px;
+    margin-right: 20px;
+    width: 7.2rem; 
+    height: 12rem; 
+    background-color: #3b5998;
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25); 
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25);
+}
+
+.mine{
+    display:inline-flex;
+    margin-top: 30px;
+    margin-right: 20px;
+    width: 7rem; 
+    height: 12rem; 
+    background-color: #3b5998;
+    -webkit-box-shadow: inset 0px 0px 3px 0px #FFFFFF; 
+    box-shadow: inset 0px 0px 3px 0px #FFFFFF;
+}
+
+.card-text{
+    background-color: transparent;
+}
+
+.card-img, .card-body{
+    height: 100%;
+    object-fit: cover;
+}
+
+.grad{
+    background-image: linear-gradient(#3b589800, #2e4b88);
+}
+
+h6{
+    font-size: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dot {
+    height: 60px;
+    width: 60px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: inline-block;
+    justify-content: center;
+    position: absolute;
+    top: 60%;
+  }
+
+  .center-dot{
+    display: flex;
+    justify-content: center; 
+  }
+
+h2{
+    margin-top: 0px;
+    font-size: 50px;
+    /* position: absolute; */
+    text-align: center;
+}
+
+.write-post{
+    position: relative;
+    margin-left: 30%;
+}
+
+input{
+    margin-top: 5%;
+    height: 3rem;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+}
+
+input:focus{
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+    color: white;
+}
+
+::placeholder { 
+    padding-left: 20px;
+    color: rgb(213, 213, 213);
+    opacity: 1;
+}
+
+.next-arrow{
+    margin-top: 12%;
+}
+
+.posts{
+    padding: 25px 30%;
+}
+
+.single-post{
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 50rem;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+}
+
+.propic-name{
+    display: inline-flex;
+    margin: -15px 0 20px -15px;
+}
+
+/* .name{
+    margin-top: 10%;
+} */
+
+.pro-pic{
+    margin: 0px 15px;
+    border-radius: 50%;
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
 }
