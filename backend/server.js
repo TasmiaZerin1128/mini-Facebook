@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 //Import routes
 const authRoute = require('./routes/auth');
+const homeRoute = require('./routes/home');
 
 dotenv.config();
 
@@ -27,5 +28,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Route Middlewares
 
 app.use('/api', authRoute);
+app.use('/api/home', homeRoute);
 
 app.listen(3000,()=> console.log('Up and running'));
