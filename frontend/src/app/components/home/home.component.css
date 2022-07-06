@@ -1,4 +1,6 @@
 .container{
+    height: 2000px;
+    width: auto;
     margin: 10px;
     align-items: center;
 }
@@ -78,20 +80,27 @@ h2{
 }
 
 .write-post{
-    position: relative;
-    margin-left: 30%;
+    width: 80rem;
+    height: 5rem;
+    margin-top: 50px;
+    margin-left: 140px;
+    text-align: center;
 }
 
 input{
     margin-top: 5%;
+    margin-left:auto;
+    margin-right:auto;
     height: 3rem;
-    width: 100%;
+    width: 50rem;
     background: rgba(255, 255, 255, 0.14);
     border-radius: 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.4px);
     -webkit-backdrop-filter: blur(5.4px);
     border: 1px solid rgba(255, 255, 255, 0.29);
+    padding-left: 30px;
+    color: white;
 }
 
 input:focus{
@@ -105,7 +114,6 @@ input:focus{
 }
 
 ::placeholder { 
-    padding-left: 20px;
     color: rgb(213, 213, 213);
     opacity: 1;
 }
