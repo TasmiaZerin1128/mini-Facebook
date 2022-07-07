@@ -59,7 +59,7 @@ exports.getLoggedIn = (async (req,res)=>{
 exports.getUserProfile = (async (req, res) => {
     try{
       const getUser = await user.findById({_id: req.params._id});
-      res.json(getUser.name);
+      res.json(getUser);
     } catch(err){
       res.status(400).send({NotFound: 'Nothing Found'});
     }

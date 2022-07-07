@@ -24,7 +24,8 @@ export class AuthService {
   
   currentUser:any = [];
 
-  userid: any;
+  userid: string = '';
+  username: string = '';
   authToken: any;
 
   headers = new HttpHeaders({
@@ -48,11 +49,19 @@ export class AuthService {
   }
 
   saveToken(response: any): any {
+    // this.getCurrentUser(this.decodeIdfromToken()).subscribe((res)=>{
+    //   this.currentUser = res.body;
+    //   this.userid = this.currentUser._id;
+    //   this.username = this.currentUser.name;
+    //   console.log("Hello from " + this.username);
+    // });
     const token = response.token;
     this.decodedToken = jwt.decodeToken(token);
     console.log(this.decodedToken._id);
     localStorage.setItem('auth_tkn', token);
     localStorage.setItem('auth_meta', JSON.stringify(this.decodedToken));
+    this.saveUser();
+
     return token;
   }
 
@@ -60,8 +69,9 @@ export class AuthService {
     if(this.isAuthenticated){
       this.getCurrentUser(this.decodeIdfromToken()).subscribe((res)=>{
         this.currentUser = res.body;
-        console.log("DATA " + res.body);
-        console.log("Hello from " + this.currentUser);
+        this.userid = this.currentUser._id;
+        this.username = this.currentUser.name;
+        console.log("Hello from " + this.username);
       });
     }
   }
@@ -83,24 +93,20 @@ export class AuthService {
     return this.authToken !== null ? true : false;
   }
 
-  postContent(content: any): Observable<any>{
-    return this.http.post(`${this.endpoint}/home/status`, content, {headers : this.headers});
-  }
 
   getCurrentUser(_id: any){
     return this.http.get(`${this.endpoint}/user-profile/`+ _id, {headers : this.headers, observe: "response"});
   }
 
-  getCurrentUsername(){
+  fetchCurrentUserId(){
     console.log("User id "+ this.userid);
-    console.log("Current "+ this.currentUser);
-    return this.currentUser;
+    return this.userid;
   }
 
-  getContents(){
-    return this.http.get(`${this.endpoint}/home`,{headers : this.headers, observe: "response"});
+  fetchCurrentUserName(){
+    console.log("User name "+ this.username);
+    return this.username;
   }
-
 
   handleError(error: HttpErrorResponse) {
     let msg = '';

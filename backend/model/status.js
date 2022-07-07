@@ -13,6 +13,10 @@ const statusSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
         required: true
+    },
+    userID:{
+        type: String,
+        required: true
     }
 });
 

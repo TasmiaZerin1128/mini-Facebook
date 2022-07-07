@@ -2,6 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
+import { HomeService } from 'src/app/home.service';
 import { status } from 'src/app/shared/status';
 
 @Component({
@@ -11,11 +12,13 @@ import { status } from 'src/app/shared/status';
 })
 export class PostComponent implements OnInit {
 
-  constructor(private route: Router, private authService: AuthService) { }
+  constructor(private route: Router, private authService: AuthService, private homeService: HomeService) { }
 
   postContent: string = "";
+  username: string = "";
 
   ngOnInit(): void {
+    this.username = this.authService.fetchCurrentUserName();
   }
 
   noAuthHeader = {
@@ -25,17 +28,25 @@ export class PostComponent implements OnInit {
     }),
   };
 
-  postStatus = new status();
+  newStatus: status = {
+    userID: '',
+    name: '',
+    content: '',
+    time: new Date()
+  }
+  postStatus: any;
 
   submitPost(){
     console.log(this.postContent);
-    console.log(this.authService.getCurrentUsername());
-    this.postStatus.name = this.authService.getCurrentUsername();
-    this.postStatus.content = this.postContent;
-    this.postStatus.time = new Date();
-    this.authService.postContent(this.postStatus).subscribe((res)=>{
+    this.newStatus.userID = this.authService.fetchCurrentUserId();
+    this.newStatus.name = this.authService.fetchCurrentUserName();
+    this.newStatus.content = this.postContent;
+    this.newStatus.time = new Date();
+    console.log(this.newStatus);
+    this.homeService.postContent(this.newStatus).subscribe((res)=>{
       if(res){
         console.log('Post Done');
+
         this.route.navigate(['/home']);
       }
     })

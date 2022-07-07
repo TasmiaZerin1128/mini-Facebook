@@ -7,7 +7,8 @@ exports.postStatus = (async (req,res) =>{
     const newPost = new status({
         name: req.body.name,
         content: req.body.content,
-        date: req.body.time,
+        time: req.body.time,
+        userID: req.body.userID,
     });
     try{
         const savedPost = await newPost.save();
@@ -15,4 +16,15 @@ exports.postStatus = (async (req,res) =>{
     } catch(err){
         res.status(400).send({Fail:'Cannot post the content'});
     }
+});
+
+exports.getStatuses = (async (req,res) =>{
+    try{
+        const allStatus = await status.find().sort({"time":-1}).limit(10);        // -1 means descending
+        res.send(allStatus);
+    } catch(err){
+        res.status(400).send({Fail: 'Statuses not found'});
+    }
+    
+    
 });

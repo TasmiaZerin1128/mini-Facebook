@@ -1,12 +1,11 @@
 .container{
-    height: 2000px;
     width: auto;
     margin: 10px;
     align-items: center;
 }
 
 .stories{
-    margin-left: 30%;
+    margin-left: 28%;
     display:inline-flex;
 }
 
@@ -16,8 +15,8 @@
 }
 .others{
     display:inline-flex;
-    margin-top: 30px;
-    margin-right: 20px;
+    margin-top: 10px;
+    margin-right: 15px;
     width: 7.2rem; 
     height: 12rem; 
     background-color: #3b5998;
@@ -27,8 +26,8 @@
 
 .mine{
     display:inline-flex;
-    margin-top: 30px;
-    margin-right: 20px;
+    margin-top: 10px;
+    margin-right: 15px;
     width: 7rem; 
     height: 12rem; 
     background-color: #3b5998;
@@ -83,12 +82,13 @@ h2{
     width: 80rem;
     height: 5rem;
     margin-top: 50px;
-    margin-left: 140px;
+    margin-left: 120px;
     text-align: center;
+    display: inline-flex;
 }
 
 input{
-    margin-top: 5%;
+    /* margin-top: 5%; */
     margin-left:auto;
     margin-right:auto;
     height: 3rem;
@@ -123,7 +123,7 @@ input:focus{
 }
 
 .posts{
-    padding: 25px 30%;
+    padding: 25px 28%;
 }
 
 .single-post{
@@ -153,4 +153,44 @@ input:focus{
     object-fit: cover;
     height: 50px;
     width: 50px;
+}
+
+.logout{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:rgb(255, 255, 255);
+	color:#FFF;
+	border-radius:50px;
+    border-color: transparent;
+	text-align:center;
+    color: #2e4b88;
+}
+
+.propic-self{
+    float: right;
+    margin: 15px 50px 10px 0;
+    border-radius: 50%;
+    object-fit: cover;
+    height: 45px;
+    width: 45px;
+}
+
+.white-head{
+    background: #21386b;
+    box-shadow: 0 4px 10px rgba(250, 250, 250, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    /* border-bottom: 1px solid #132347; */
+    height: 70px;
+    width: 100%;
+}
+
+#fbLogo{
+    margin: 10px 0px 5px 40px;
+    height: 50px;
+    width: auto;
+    float: left;
 }
