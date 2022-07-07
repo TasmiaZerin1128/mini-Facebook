@@ -25,4 +25,8 @@ export class HomeComponent implements OnInit {
   open() {
   }
 
+  goToPost(){
+    this.router.navigate(['/post']);
+  }
+
 }

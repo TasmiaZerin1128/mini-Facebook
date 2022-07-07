@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
+import { User } from 'src/app/shared/user';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +27,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
   show: boolean = false;
 
+
   ngOnInit(): void {
   }
 
@@ -37,14 +40,14 @@ export class LoginComponent implements OnInit {
 
   loginUser(){
     console.log(this.loginForm.value);
-    this.authService.login(this.loginForm.value).subscribe((res)=>{
-      if(res){
+    this.authService.login(this.loginForm.value).subscribe((data)=>{
+      if(data){
         this.loginForm.reset();
-        console.log('Logged In');
+        console.log('Logged In ');
         this.router.navigate(['home']);
       }
     })
-  }
+  };
 
   showPassword() {
     this.show = !this.show;

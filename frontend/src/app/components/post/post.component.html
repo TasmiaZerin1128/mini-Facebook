@@ -10,10 +10,10 @@
                 <img src="../../../assets/images/s5.png" class="pro-pic" alt="...">
                 <h5 class="card-title name" style="color: white;">Pippo</h5>
             </div>
-            <textarea type="text" class="form-control" placeholder="What's on your mind?"></textarea>
+            <textarea type="text" class="form-control" placeholder="What's on your mind?" [(ngModel)]="postContent"></textarea>
         </div>
         <div class="row post">
-            <button>Post</button>
+            <button (click)="submitPost()">Post</button>
         </div>
     </div>
 </div>

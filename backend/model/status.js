@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
-const postSchema = new mongoose.Schema({
-    _id:{
-        type: String,
-        required: true,
-    },
+const statusSchema = new mongoose.Schema({
     name:{
         type: String,
         required: true
@@ -15,8 +11,9 @@ const postSchema = new mongoose.Schema({
     },
     time:{
         type: Date,
+        default: Date.now,
         required: true
     }
 });
 
-module.exports = mongoose.model('post', userSchema);
+module.exports = mongoose.model('status', statusSchema);
