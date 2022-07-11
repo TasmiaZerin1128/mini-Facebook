@@ -6,6 +6,7 @@ import { User } from './shared/user';
 import { token_id } from './shared/itoken_info';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as moment from 'moment';
+import { RegisterComponent } from './components/register/register.component';
 
 const jwt = new JwtHelperService();
 
@@ -42,6 +43,10 @@ export class AuthService {
     return this.http.post(`${this.endpoint}/register`, user, {headers : this.headers});
   }
 
+  // login(user: any){
+  //   return this.http.post<any>(`${this.endpoint}/login`, user, {headers : this.headers});
+  // }
+
   login(user: any): Observable<token_id>{
     return this.http.post<token_id>(`${this.endpoint}/login`, user, {headers : this.headers}).pipe(map((res) => {
       return this.saveToken(res);
@@ -49,12 +54,6 @@ export class AuthService {
   }
 
   saveToken(response: any): any {
-    // this.getCurrentUser(this.decodeIdfromToken()).subscribe((res)=>{
-    //   this.currentUser = res.body;
-    //   this.userid = this.currentUser._id;
-    //   this.username = this.currentUser.name;
-    //   console.log("Hello from " + this.username);
-    // });
     const token = response.token;
     this.decodedToken = jwt.decodeToken(token);
     console.log(this.decodedToken._id);
