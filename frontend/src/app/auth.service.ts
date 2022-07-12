@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { User } from './shared/user';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import * as moment from 'moment';
 
 const jwt = new JwtHelperService();
 
