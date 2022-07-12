@@ -76,6 +76,17 @@ input:focus{
     margin-top: 20px;
 }
 
+.error{
+    /* margin-top: 20px; */
+    font-size: 15px;
+    color: #911616;
+    padding: 10px 10px;
+    background: rgba(238, 90, 74, 0.264);
+    border-radius: 8px;
+    /* -webkit-backdrop-filter: blur(5.4px);  */
+    border: 1px solid rgba(209, 12, 12, 0.29);
+}
+
 .card-text{
     color: rgb(12, 38, 78);
     margin-top: 20px;
@@ -83,6 +94,7 @@ input:focus{
 
 .card-text a{
     color: white;
+    text-decoration: none;
 }
 
 

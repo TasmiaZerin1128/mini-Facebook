@@ -1,29 +1,10 @@
 const router = require('express').Router();
+const status = require('../model/status');
 const verify = require('./verifyToken');
+const homeController = require('../controllers/homeController');
 
-router.get('/',verify, (req,res) =>{
-    res.json({
-        posts:{
-            title: "Testing",
-            description: "I love you"
-        }
-    });
-});
+router.post('/status', homeController.postStatus);
 
-router.post('/post', async (req,res) =>{
-    //Create a new post
-    const newPost = new post({
-        _id: req.body._id,
-        name: req.body.name,
-        content: req.body.content,
-        time: req.body.time
-    });
-    try{
-        const savedUser = await newuser.save();
-        res.send({user: newuser._id});
-    } catch(err){
-        res.status(400).send(err);
-    }
-});
+router.get('/status', homeController.getStatuses);
 
 module.exports = router;

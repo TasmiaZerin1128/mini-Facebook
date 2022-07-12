@@ -55,10 +55,28 @@ input:focus{
     color:rgb(201, 210, 223);
 }
 
+.error{
+    /* margin-top: 20px; */
+    font-size: 15px;
+    color: #911616;
+    padding: 10px 10px;
+    background: rgba(238, 90, 74, 0.264);
+    border-radius: 8px;
+    /* -webkit-backdrop-filter: blur(5.4px);  */
+    border: 1px solid rgba(209, 12, 12, 0.29);
+}
+
 .btn{
     padding: 10px;
     width: 100%;
     margin-top: 20px;
+    background-color: #3b5998; 
+    color: white;
+}
+
+.btn:disabled{
+    background-color: #272f42; 
+    color: rgba(255, 255, 255, 0.544);
 }
 
 .card-text{
@@ -68,4 +86,5 @@ input:focus{
 
 .card-text a{
     color: white;
+    text-decoration: none;
 }

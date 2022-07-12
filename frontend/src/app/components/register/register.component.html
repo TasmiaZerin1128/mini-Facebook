@@ -9,6 +9,7 @@
         <div class="col-6">
             <div class="card">
                 <form action="#" class="register-form" [formGroup] = "registerForm">
+                    <h6 [ngClass]="{error: hasError}">{{credError}}</h6>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -50,7 +51,7 @@
                         </div> 
                         <input type="text" class="form-control" placeholder="Date of Birth" [(ngModel)]="dob" formControlName="dob" onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
-                    <div class="input-group mb-2">
+                    <!-- <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-image-fill" viewBox="0 0 16 16">
@@ -62,7 +63,7 @@
                             Upload Profile Picture
                         </label>
                         <input id="file-upload" type="file"/>
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn" style="background-color: #3b5998; color: white;" (click)="registerUser()">Create Account</button>
                     <p class="card-text">Already have an account? <a [routerLink]="['']" class="card-link">Log In</a></p>
                 </form>

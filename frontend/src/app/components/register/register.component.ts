@@ -27,6 +27,10 @@ export class RegisterComponent implements OnInit {
   password: string = '';
   dob: string = '';
 
+  canRegister: boolean = false;
+  hasError: boolean = false;
+  credError: string = '';
+
   ngOnInit(): void {
   }
 
@@ -38,14 +42,41 @@ export class RegisterComponent implements OnInit {
   };
 
   registerUser(){
-    console.log(this.registerForm.value);
-    // let user = JSON.stringify(this.registerForm.value);
-    this.authService.signUp(this.registerForm.value).subscribe((res)=>{
-      if(res){
+    if(this.check()){
+      console.log(this.registerForm.value);
+    this.authService.signUp(this.registerForm.value).subscribe({
+      next: data => {
         this.registerForm.reset();
-        this.router.navigate([''])
+        console.log('Registered');
+        this.router.navigate(['']);
+      },
+      error: error => {
+          console.error(error.status);
+          this.canRegister = false;
+          this.hasError = true;
+          this.credError = "Failed to create an account!";
       }
-    })
+    });
+    }
+  }
+
+  check():boolean{
+    if(this.email!='' && this.password!='' && this.name=='' && this.dob==''){
+      this.canRegister = true;
+      return true;
+    }
+    else{
+      this.hasError = true;
+      this.credError = "Please enter the credentials correctly";
+      if(this.name.length<4)
+      {
+        this.credError = "Name should be atleast of 4 characters";
+      }
+      if(this.password.length<6){
+        this.credError = "Password must contain atleast 6 characters";
+      }
+      return false;
+    }
   }
 
 }
