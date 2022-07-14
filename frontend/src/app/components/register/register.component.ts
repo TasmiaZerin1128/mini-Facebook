@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
   }
 
   check():boolean{
-    if(this.email!='' && this.password!='' && this.name=='' && this.dob==''){
+    if(this.email!='' && this.password!='' && this.name!='' && this.dob!=''){
       this.canRegister = true;
       return true;
     }

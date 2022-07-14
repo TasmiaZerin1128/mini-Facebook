@@ -2,10 +2,11 @@ import { DatePipe } from '@angular/common';
 import { HttpHeaders } from '@angular/common/http';
 import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Event, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { HomeService } from 'src/app/home.service';
 import { status } from 'src/app/shared/status';
+import { story } from 'src/app/shared/story';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,12 @@ export class HomeComponent implements OnInit {
   placeholderText: string = "";
 
   question = "?";
+
+  fileName = '';
+
+
+  file: File | null = null;
+
   
   ngOnInit(): void {
     this.homeService.getContents().subscribe((data) =>{
@@ -61,6 +68,11 @@ export class HomeComponent implements OnInit {
 
   goToPost(){
     this.router.navigate(['/post']);
+  }
+
+  onFileSelected(event:any) {
+
+      console.log("This if the file " + event.target.files[0].name);
   }
 
 }
