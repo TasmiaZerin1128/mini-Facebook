@@ -31,4 +31,8 @@ export class HomeService {
     return this.http.get<status>(`${this.endpoint}/home/status`,{headers : this.headers, observe: "response"});
   }
 
+  postStory(story: any): Observable<any>{
+    return this.http.post(`${this.endpoint}/home/story`, story, {headers : this.headers});
+  }
+
 }

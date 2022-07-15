@@ -1,6 +1,7 @@
 export interface story{
     userID: string;
     name: string;
-    photo: File | null;
+    story: any;
+    // photo: File | null;
     time: Date;
 }

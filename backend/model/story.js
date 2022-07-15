@@ -5,8 +5,8 @@ const storySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    story:{
-        type: File,
+    storyUUID:{
+        type: String,
         required: true
     },
     time:{

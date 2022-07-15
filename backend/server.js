@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const Minio = require('minio');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
-const crypto = require('crypto');
 
 //Import routes
 const authRoute = require('./routes/auth');
@@ -34,7 +33,7 @@ app.use('/api/home', homeRoute);
 
 app.listen(3000,()=> console.log('Up and running'));
 
-var minioClient = new Minio.Client({
+const minioClient = new Minio.Client({
     endPoint: '127.0.0.1',
     port: 9000,
     useSSL: false,
@@ -42,13 +41,10 @@ var minioClient = new Minio.Client({
     secretKey: process.env.SECRET_KEY
 });
 
-var photoFB = 'fbApp.jpg';
+if(minioClient){
+    console.log('minIO connected');
+}
 
-//fPutObject(bucketName, objectName, filePath, metaData[, callback])
+module.exports = { minioClient };
 
-var uuidName = crypto.randomUUID();
 
-minioClient.fPutObject('minifb', uuidName, photoFB, function(err, etag) {
-    if (err) return console.log(err)
-    console.log('File uploaded successfully. '+ uuidName)
-  });
