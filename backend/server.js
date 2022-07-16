@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const Minio = require('minio');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
+const { static } = require('express');
 
 //Import routes
 const authRoute = require('./routes/auth');
@@ -30,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', authRoute);
 app.use('/api/home', homeRoute);
+
 
 app.listen(3000,()=> console.log('Up and running'));
 

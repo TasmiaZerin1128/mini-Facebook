@@ -29,6 +29,7 @@
     "jsonwebtoken": "^8.5.1",
     "mdb-ui-kit": "^4.2.0",
     "moment": "^2.29.3",
+    "ng2-file-upload": "^1.4.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

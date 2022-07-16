@@ -14,11 +14,17 @@ export class HomeService {
   allStatus: any;
 
   headers = new HttpHeaders({
-    'Content-Type': 'application/json',
+    'Content-Type':'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
   }); 
+
+  storyHeader = new HttpHeaders({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+  });
 
   constructor(private http: HttpClient, public router: Router) {
    }
@@ -32,7 +38,8 @@ export class HomeService {
   }
 
   postStory(story: any): Observable<any>{
-    return this.http.post(`${this.endpoint}/home/story`, story, {headers : this.headers});
+    return this.http.post(`${this.endpoint}/home/story`, story, {headers : this.storyHeader});
   }
+  
 
 }

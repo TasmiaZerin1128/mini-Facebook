@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const Minio = require('minio');
 const server = require('../server');
 
+
 exports.postStatus = (async (req,res) =>{
     //Create a new post
     const newPost = new status({
@@ -32,24 +33,29 @@ exports.getStatus = (async (req,res) =>{
     
 });
 
-exports.postStory = (async (req,res) =>{
+exports.postStory = (async(req,res) =>{
 
     const minioClient = minio();
     
     //PutObject(bucketName, objectName, stream, size, metaData[, callback])
     
     var uuidName = crypto.randomUUID();
+
+    var metaData = {
+        'Content-Type': 'image'
+    }
     
-    minioClient.putObject('minifb', uuidName, req.body.story, function(err, etag) {
+    try{
+        console.log(JSON.stringify(req.body));
+        minioClient.fPutObject('minifb', uuidName, req.file.path, metaData, function(err, etag) {
         if (err) return console.log(err)
         console.log('File uploaded successfully. '+ uuidName)
     });
-
+    
     //Create a new story
     const newStory = new story({
         name: req.body.name,
         storyUUID: uuidName,
-        time: req.body.time,
         userID: req.body.userID,
     });
     try{
@@ -58,35 +64,38 @@ exports.postStory = (async (req,res) =>{
     } catch(err){
         res.status(400).send(err);
     }
+    } catch(err){
+        res.status(400).send(err);
+    }
 });
 
 
 exports.getStory = (async (req,res) =>{
 
-    try{
-        const allStory = await story.findOne().sort({"time":-1});       // -1 means descending
-        const minioClient = minio();
-        try{
-            const stream = minioClient.getObject('minifb', allStory.storyUUID, function (err, dataStream) {
-            if (err) {
-                return console.log(err)
-              }
-              dataStream.on('end', function() {
-                console.log(dataStream);
-                return dataStream;
-              })
-              dataStream.on('error', function(err) {
-                console.log(err)
-              })
-        })
-        console.log(stream);
-        res.send(allStory);
-    } catch(err){
-        res.status(400).send({Fail: 'Image not found'});
-    }
-    } catch(err){
-        res.status(400).send({Fail: 'Stories not found'});
-    }
+    // try{
+    //     const allStory = await story.findOne().sort({"time":-1});       // -1 means descending
+    //     const minioClient = minio();
+    //     try{
+    //         const stream = minioClient.getObject('minifb', allStory.storyUUID, function (err, dataStream) {
+    //         if (err) {
+    //             return console.log(err)
+    //           }
+    //           dataStream.on('end', function() {
+    //             console.log(dataStream);
+    //             return dataStream;
+    //           })
+    //           dataStream.on('error', function(err) {
+    //             console.log(err)
+    //           })
+    //     })
+    //     console.log(stream);
+    //     res.send(allStory);
+    // } catch(err){
+    //     res.status(400).send({Fail: 'Image not found'});
+    // }
+    // } catch(err){
+    //     res.status(400).send({Fail: 'Stories not found'});
+    // }
 });
 
 function minio(){

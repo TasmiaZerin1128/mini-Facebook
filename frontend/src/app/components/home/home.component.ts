@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +17,7 @@ import { story } from 'src/app/shared/story';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router, private homeService: HomeService, public datepipe: DatePipe, public domSanitizer: DomSanitizer) { }
+  constructor(private authService: AuthService, private http: HttpClient, private router: Router, private homeService: HomeService, public datepipe: DatePipe, public domSanitizer: DomSanitizer) { }
 
   allStatus:any;
 
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
   newStory: story = {
     userID: '',
     name: '',
-    story: '',
+    story: [null],
     time: new Date()
   }
 
@@ -81,45 +81,22 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/post']);
   }
 
-  onFileSelected(event:any) {
+  upload(event:any) {
 
     this.file = event.target.files[0];
     
-    let reader = new FileReader();
-
     if(this.file){
-      reader.readAsDataURL(this.file);
-      reader.onload = (_event) => {
-			let storyData = reader.result;
-      if(storyData){
-        this.newStory.story = storyData;
-        this.uploadedImage = storyData;
-        
-        //this.toBase64(storyData);
-      }
-      
-		}
-    }
-    this.newStory.userID = this.authService.fetchCurrentUserId();
-    this.newStory.name = this.authService.fetchCurrentUserName();
-    this.newStory.time = new Date();
-    this.homeService.postStory(this.newStory).subscribe((res)=>{
+      const formData = new FormData(); 
+      formData.append('files', this.file, this.file.name);
+      formData.append('name', this.authService.fetchCurrentUserName());
+      formData.append('userID', this.authService.fetchCurrentUserId());
+
+      this.homeService.postStory(formData).subscribe((res)=>{
       if(res){
         console.log('Story Done');
       }
-    })
-  }
-
-  toBase64(storydata: any){
-    storydata = new Uint8Array(storydata);
-
-    const STRING_CHAR = storydata.reduce((data:any, byte:any)=> {
-      return data + String.fromCharCode(byte);}, '');
-
-    let base64String = btoa(STRING_CHAR);
-
-    this.uploadedImage = this.domSanitizer.bypassSecurityTrustUrl('data:image/jpg;base64,' + base64String);
-    console.log(this.uploadedImage);
+      })
+    }
   }
 
 }
