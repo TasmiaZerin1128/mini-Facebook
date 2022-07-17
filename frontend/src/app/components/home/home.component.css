@@ -6,7 +6,17 @@
 
 .stories{
     margin-left: 25%;
-    display:inline-flex;
+    width: 50rem;
+    height: 15rem;
+    overflow-x: auto;
+    /* display:inline-flex; */
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.card{
+    flex: 0 0 auto;
 }
 
 .card, .card-img, .card-img-overlay{
@@ -16,8 +26,8 @@
 .others{
     display:inline-flex;
     margin-top: 10px;
-    margin-right: 15px;
-    width: 7.2rem; 
+    margin-right: 13px;
+    width: 7.5rem; 
     height: 12rem; 
     background-color: #3b5998;
     -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25); 
@@ -25,10 +35,9 @@
 }
 
 .mine{
-    display:inline-flex;
     margin-top: 10px;
-    margin-right: 15px;
-    width: 7rem; 
+    margin-right: 20px;
+    width: 7.5rem; 
     height: 12rem; 
     background-color: #3b5998;
     -webkit-box-shadow: inset 0px 0px 3px 0px #FFFFFF; 
@@ -120,7 +129,7 @@ h2{
 }
 
 .next-arrow{
-    margin-top: 12%;
+    margin-top: 10%;
 }
 
 .posts{
@@ -202,4 +211,25 @@ h2{
     visibility: hidden;
     height: 0;
     width: 0;
+}
+
+
+/*Scrollbar custommize*/
+.stories{
+    scrollbar-color: #D4AA70 #e4e4e4;
+}
+
+.stories::-webkit-scrollbar {
+    width: 15px;
+    height: 5px;
+}
+ 
+.stories::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+ 
+.stories::-webkit-scrollbar-thumb {
+    background-color: #939cb2f1;
+    border-radius: 100px;
 }

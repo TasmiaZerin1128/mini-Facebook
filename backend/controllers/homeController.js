@@ -5,6 +5,7 @@ const verify = require('../routes/verifyToken');
 const crypto = require('crypto');
 const Minio = require('minio');
 const server = require('../server');
+const authController = require('../controllers/authController');
 
 
 exports.postStatus = (async (req,res) =>{
@@ -24,8 +25,10 @@ exports.postStatus = (async (req,res) =>{
 });
 
 exports.getStatus = (async (req,res) =>{
+
     try{
-        const allStatus = await status.find().sort({"time":-1}).limit(10);        // -1 means descending
+        userID = authController.loggedInUser.name;
+        const allStatus = await status.find({name: {$ne: userID}}).sort({"time":-1}).limit(10);        // -1 means descending  $ne for not equal to;
         res.send(allStatus);
     } catch(err){
         res.status(400).send({Fail: 'Statuses not found'});
@@ -71,31 +74,12 @@ exports.postStory = (async(req,res) =>{
 
 
 exports.getStory = (async (req,res) =>{
-
-    // try{
-    //     const allStory = await story.findOne().sort({"time":-1});       // -1 means descending
-    //     const minioClient = minio();
-    //     try{
-    //         const stream = minioClient.getObject('minifb', allStory.storyUUID, function (err, dataStream) {
-    //         if (err) {
-    //             return console.log(err)
-    //           }
-    //           dataStream.on('end', function() {
-    //             console.log(dataStream);
-    //             return dataStream;
-    //           })
-    //           dataStream.on('error', function(err) {
-    //             console.log(err)
-    //           })
-    //     })
-    //     console.log(stream);
-    //     res.send(allStory);
-    // } catch(err){
-    //     res.status(400).send({Fail: 'Image not found'});
-    // }
-    // } catch(err){
-    //     res.status(400).send({Fail: 'Stories not found'});
-    // }
+    try{
+        const allStory = await story.find().sort({"time":-1}).limit(10);       // -1 means descending
+        res.send(allStory);
+    } catch(err){
+        res.status(400).send({Fail: 'Image not found'});
+    }
 });
 
 function minio(){

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { status } from './shared/status';
+import { story } from './shared/story';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,10 @@ export class HomeService {
 
   postStory(story: any): Observable<any>{
     return this.http.post(`${this.endpoint}/home/story`, story, {headers : this.storyHeader});
+  }
+
+  getStories(){
+    return this.http.get<story>(`${this.endpoint}/home/story`,{headers : this.headers, observe: "response"});
   }
   
 
