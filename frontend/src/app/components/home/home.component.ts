@@ -48,26 +48,10 @@ export class HomeComponent implements OnInit {
   bucket = "minifb";
   
   ngOnInit(): void {
-    this.homeService.getContents().subscribe((data) =>{
-      this.allStatus = data.body;
-      this.fetchedStatuses = this.allStatus;
-      for(let i=0;i<this.fetchedStatuses.length;i++){
-        this.updatedDate = this.datepipe.transform(this.fetchedStatuses[i].time, 'MMM d, y, h:mm a');
-        this.fetchedStatuses[i].time = this.updatedDate;
-      }
-      this.username = this.authService.fetchCurrentUserName();
-      this.placeholderText = this.placeholder.concat(this.username.toString().concat(this.question.toString()));
-      console.log(this.username);
-    });
 
-    this.homeService.getStories().subscribe((data) =>{
-      this.allStory = data.body;
-      this.fetchedStories = this.allStory;
-      for(let i=0;i<this.fetchedStories.length;i++){
-        this.fetchedStories[i].storyUUID = "http://"+this.minioHost+":"+this.port+"/"+this.bucket+"/"+this.fetchedStories[i].storyUUID;
-        console.log(this.fetchedStories[i].storyUUID);
-      }
-    });
+    this.getPosts();
+
+    this.getStories();
   }
 
   index = 0;
@@ -88,6 +72,31 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/post']);
   }
 
+  getPosts(){
+    this.homeService.getContents().subscribe((data) =>{
+      this.allStatus = data.body;
+      this.fetchedStatuses = this.allStatus;
+      for(let i=0;i<this.fetchedStatuses.length;i++){
+        this.updatedDate = this.datepipe.transform(this.fetchedStatuses[i].time, 'MMM d, y, h:mm a');
+        this.fetchedStatuses[i].time = this.updatedDate;
+      }
+      this.username = this.authService.fetchCurrentUserName();
+      this.placeholderText = this.placeholder.concat(this.username.toString().concat(this.question.toString()));
+      console.log(this.username);
+    });
+  }
+
+  getStories(){
+    this.homeService.getStories().subscribe((data) =>{
+      this.allStory = data.body;
+      this.fetchedStories = this.allStory;
+      for(let i=0;i<this.fetchedStories.length;i++){
+        this.fetchedStories[i].storyUUID = "http://"+this.minioHost+":"+this.port+"/"+this.bucket+"/"+this.fetchedStories[i].storyUUID;
+        console.log(this.fetchedStories[i].storyUUID);
+      }
+    });
+  }
+
   upload(event:any) {
 
     this.file = event.target.files[0];
@@ -101,6 +110,7 @@ export class HomeComponent implements OnInit {
       this.homeService.postStory(formData).subscribe((res)=>{
       if(res){
         console.log('Story Done');
+        this.getStories();
       }
       })
     }

@@ -181,11 +181,17 @@ h2{
 
 .propic-self{
     float: right;
-    margin: 15px 50px 10px 0;
+    margin: 10px 50px 10px 0;
     border-radius: 50%;
     object-fit: cover;
     height: 45px;
     width: 45px;
+}
+
+.name-self{
+    color: white;
+    float: right;
+    margin: 25px 20px 10px 0;
 }
 
 .white-head{
