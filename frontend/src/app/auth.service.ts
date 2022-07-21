@@ -97,6 +97,10 @@ export class AuthService {
     return this.http.get(`${this.endpoint}/user-profile/`+ _id, {headers : this.headers, observe: "response"});
   }
 
+  getAllUsers(){
+    return this.http.get(`${this.endpoint}/users`, {headers : this.headers, observe: "response"});
+  }
+
   fetchCurrentUserId(){
     console.log("User id "+ this.userid);
     return this.userid;

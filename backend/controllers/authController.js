@@ -65,3 +65,12 @@ exports.getUserProfile = (async (req, res) => {
       res.status(400).send({NotFound: 'Nothing Found'});
     }
 });
+
+exports.getAllUsers = (async(req,res) =>{
+    try{
+        const getAllUsers = await user.find();
+        res.json(getAllUsers);
+    } catch (err){
+        res.status(400).json('Users not found');
+    }
+})

@@ -1,13 +1,39 @@
+<div [hidden]="fullHidden" class="fullS">
+  <div class="img-close">
+  <img class="fullStory" src="../../../assets/images/s6.png">
+  <button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+  </svg>
+  </button>
+</div>
+  
+</div>
 <div class="white-head">
   <img src="../../../assets/images/miniFB_transparent.svg" id="fbLogo">
   <img src="../../../assets/images/s6.png" class="propic-self">
   <h5 class="name-self">{{username}}</h5>
 </div>
 <div class="container">
-  <div class="write-post">
-    <input type="text" class="form-control" id="post" placeholder="{{placeholderText}}" (click)="goToPost()">
+ <div class="row">
+  <div class="col friends">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#07224dda" class="bi bi-people-fill friendIcon" viewBox="0 0 16 16">
+      <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+      <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+    </svg>
+    <div *ngFor="let user of fetchedUsers">
+      <div class="friendpic-name">
+      <img src="../../../assets/images/fbRound.jpg" class="friend-pic" alt="...">
+      <h5>{{user.name}}</h5>
+    </div>
+    </div>
   </div>
-  <div class="stories">
+  <div class="col-md-10 align-self-start">
+    <div class="write-post">
+    <input type="text" class="form-control" id="post" placeholder="{{placeholderText}}" (click)="goToPost()">
+    </div>
+    <div class="stories">
     <div class="card mine text-white">
       <div class="card-img"></div>
       <div class="card-img-overlay center-dot">
@@ -49,7 +75,10 @@
         </div>
       </div>
     </div>
-    <button class="logout" (click)="logout()">
+    </div>
+  </div> 
+    
+     <button class="logout" (click)="logout()">
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#2e4b88" class="bi bi-box-arrow-right"
         viewBox="0 0 16 16">
         <path fill-rule="evenodd"
@@ -58,4 +87,5 @@
           d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
       </svg>
     </button>
+  </div>
   </div>

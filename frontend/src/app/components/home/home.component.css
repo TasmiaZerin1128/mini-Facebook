@@ -1,11 +1,11 @@
-.container{
+.container {
     width: auto;
     margin: 10px auto;
     align-items: center;
 }
 
-.stories{
-    margin-left: 25%;
+.stories {
+    margin-left: 10%;
     width: 50rem;
     height: 15rem;
     overflow-x: auto;
@@ -15,49 +15,53 @@
     overflow-x: auto;
 }
 
-.card{
+.card {
     flex: 0 0 auto;
 }
 
-.card, .card-img, .card-img-overlay{
+.card,
+.card-img,
+.card-img-overlay {
     border: transparent;
     border-radius: 10px;
 }
-.others{
-    display:inline-flex;
+
+.others {
+    display: inline-flex;
     margin-top: 10px;
     margin-right: 13px;
-    width: 7.5rem; 
-    height: 12rem; 
+    width: 7.5rem;
+    height: 12rem;
     background-color: #3b5998;
-    -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25); 
-    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
-.mine{
+.mine {
     margin-top: 10px;
     margin-right: 20px;
-    width: 7.5rem; 
-    height: 12rem; 
+    width: 7.5rem;
+    height: 12rem;
     background-color: #3b5998;
-    -webkit-box-shadow: inset 0px 0px 3px 0px #FFFFFF; 
+    -webkit-box-shadow: inset 0px 0px 3px 0px #FFFFFF;
     box-shadow: inset 0px 0px 3px 0px #FFFFFF;
 }
 
-.card-text{
+.card-text {
     background-color: transparent;
 }
 
-.card-img, .card-body{
+.card-img,
+.card-body {
     height: 100%;
     object-fit: cover;
 }
 
-.grad{
+.grad {
     background-image: linear-gradient(#3b589800, #2e4b88);
 }
 
-h6{
+h6 {
     font-size: 15px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -74,33 +78,33 @@ h6{
     justify-content: center;
     position: absolute;
     top: 60%;
-  }
+}
 
-  .center-dot{
+.center-dot {
     display: flex;
-    justify-content: center; 
-  }
+    justify-content: center;
+}
 
-h2{
+h2 {
     margin-top: 0px;
     font-size: 50px;
     /* position: absolute; */
     text-align: center;
 }
 
-.write-post{
+.write-post {
     width: 80rem;
     height: 5rem;
     margin-top: 50px;
-    margin-left: 80px;
+    margin-left: -135px;
     text-align: center;
     display: inline-flex;
 }
 
-#post{
+#post {
     /* margin-top: 5%; */
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     height: 3rem;
     width: 50rem;
     background: rgba(255, 255, 255, 0.14);
@@ -113,7 +117,7 @@ h2{
     color: white;
 }
 
-#post:focus{
+#post:focus {
     background: rgba(255, 255, 255, 0.14);
     border-radius: 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -123,20 +127,20 @@ h2{
     color: white;
 }
 
-::placeholder { 
+::placeholder {
     color: rgb(213, 213, 213);
     opacity: 1;
 }
 
-.next-arrow{
+.next-arrow {
     margin-top: 10%;
 }
 
-.posts{
-    padding: 25px 25%;
+.posts {
+    padding: 25px 10%;
 }
 
-.single-post{
+.single-post {
     margin-bottom: 20px;
     padding: 20px;
     width: 50rem;
@@ -148,7 +152,7 @@ h2{
     border: 1px solid rgba(255, 255, 255, 0.29);
 }
 
-.propic-name{
+.propic-name {
     display: inline-flex;
     margin: -15px 0 20px -15px;
 }
@@ -157,7 +161,7 @@ h2{
     margin-top: 10%;
 } */
 
-.pro-pic{
+.pro-pic {
     margin: 0px 15px;
     border-radius: 50%;
     object-fit: cover;
@@ -165,21 +169,21 @@ h2{
     width: 50px;
 }
 
-.logout{
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:rgb(255, 255, 255);
-	color:#FFF;
-	border-radius:50px;
+.logout {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: rgb(255, 255, 255);
+    color: #FFF;
+    border-radius: 50px;
     border-color: transparent;
-	text-align:center;
+    text-align: center;
     color: #2e4b88;
 }
 
-.propic-self{
+.propic-self {
     float: right;
     margin: 10px 50px 10px 0;
     border-radius: 50%;
@@ -188,13 +192,13 @@ h2{
     width: 45px;
 }
 
-.name-self{
+.name-self {
     color: white;
     float: right;
     margin: 25px 20px 10px 0;
 }
 
-.white-head{
+.white-head {
     background: #21386b;
     box-shadow: 0 4px 10px rgba(250, 250, 250, 0.1);
     backdrop-filter: blur(5.4px);
@@ -204,7 +208,7 @@ h2{
     width: 100%;
 }
 
-#fbLogo{
+#fbLogo {
     margin: 10px 0px 5px 40px;
     height: 50px;
     width: auto;
@@ -212,7 +216,7 @@ h2{
 }
 
 
-#storyUpload{
+#storyUpload {
     display: block;
     visibility: hidden;
     height: 0;
@@ -221,7 +225,7 @@ h2{
 
 
 /*Scrollbar custommize*/
-.stories{
+.stories {
     scrollbar-color: #D4AA70 #e4e4e4;
 }
 
@@ -229,13 +233,71 @@ h2{
     width: 15px;
     height: 5px;
 }
- 
+
 .stories::-webkit-scrollbar-track {
     background-color: #e4e4e4;
     border-radius: 100px;
 }
- 
+
 .stories::-webkit-scrollbar-thumb {
     background-color: #939cb2f1;
     border-radius: 100px;
+}
+
+img[src=""] {
+    display: none;
+}
+
+
+.friends {
+    color: white;
+    margin-top: 15%;
+    margin-left: -100px;
+}
+
+.friendpic-name {
+    width: 15rem;
+    padding: 10px 0px;
+    display: inline-flex;
+    margin: -15px 0px 25px -15px;
+    padding-right: 20px;
+    /* From https://css.glass */
+    background: rgba(4, 45, 105, 0.34);
+    border-radius: 16px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(4, 45, 105, 0.3);
+}
+
+/* .name{
+    margin-top: 10%;
+} */
+
+.friend-pic {
+    margin: 0px 15px;
+    border-radius: 50%;
+    object-fit: cover;
+    height: 30px;
+    width: 30px;
+}
+
+.friendIcon{
+    margin-bottom: 30px;
+    color: #07224dda;
+}
+
+.fullS{
+    width: 100rem;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fullStory{
+    margin: 10% auto;
+    width: 50%;
 }

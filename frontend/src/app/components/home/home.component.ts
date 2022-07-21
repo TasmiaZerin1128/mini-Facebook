@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/auth.service';
 import { HomeService } from 'src/app/home.service';
 import { status } from 'src/app/shared/status';
 import { story } from 'src/app/shared/story';
+import { User } from 'src/app/shared/user';
 
 @Component({
   selector: 'app-home',
@@ -22,9 +23,11 @@ export class HomeComponent implements OnInit {
 
   allStatus:any;
   allStory: any;
+  allUser: any;
 
   fetchedStatuses: status[] = [];
   fetchedStories: story[] = [];
+  fetchedUsers: User[] = [];
 
   updatedDate: any;
 
@@ -40,6 +43,8 @@ export class HomeComponent implements OnInit {
 
   uploadedImage: any;
 
+  fullHidden = true;
+
 
   file: File | null = null;
 
@@ -52,6 +57,8 @@ export class HomeComponent implements OnInit {
     this.getPosts();
 
     this.getStories();
+
+    this.getUsers();
   }
 
   index = 0;
@@ -70,6 +77,19 @@ export class HomeComponent implements OnInit {
 
   goToPost(){
     this.router.navigate(['/post']);
+  }
+
+  getUsers(){
+    this.authService.getAllUsers().subscribe((data) =>{
+      this.allUser = data.body;
+      let fetch=0;
+      for(let i=0;i<this.allUser.length;i++){
+        if(this.allUser[i].name != this.authService.fetchCurrentUserName()){
+          this.fetchedUsers[fetch] = this.allUser[i];
+          fetch++;
+        }
+      }
+    })
   }
 
   getPosts(){
