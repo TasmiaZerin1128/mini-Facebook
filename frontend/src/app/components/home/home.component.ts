@@ -45,6 +45,8 @@ export class HomeComponent implements OnInit {
 
   fullHidden = true;
 
+  fullImage: string = "";
+
 
   file: File | null = null;
 
@@ -134,6 +136,17 @@ export class HomeComponent implements OnInit {
       }
       })
     }
+  }
+
+  showFullImage(storyToShow: story){
+    this.fullHidden = false;
+    this.fullImage = storyToShow.storyUUID;
+    console.log("Show full Image");
+  }
+
+  close(){
+    this.fullHidden = true;
+    this.fullImage = "";
   }
 
 }
