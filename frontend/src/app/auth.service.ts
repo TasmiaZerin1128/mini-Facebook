@@ -88,8 +88,8 @@ export class AuthService {
 
   get isAuthenticated(): boolean {
     this.authToken = localStorage.getItem('auth_tkn');
-    console.log(this.authToken);
-    return this.authToken !== null ? true : false;
+    console.log("AuthToken" + this.authToken);
+    return this.authToken != null ? true : false;
   }
 
 
