@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const { static } = require('express');
 
 //Import routes
-const homeRoute = require('./routes/home');
+const postRoute = require('./routes/post');
 
 dotenv.config();
 
@@ -27,9 +27,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Route Middlewares
 
-app.use('/api/home', homeRoute);
+app.use('/api/home', postRoute);
 
 
-app.listen(3100,()=> console.log('Up and running'));
+app.listen(4000,()=> console.log('Up and running'));
 
 

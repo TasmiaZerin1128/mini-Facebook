@@ -3,10 +3,10 @@ const app = express();
 const router = require('express').Router();
 const status = require('../model/status');
 const multer = require("multer");
-const homeController = require('../controllers/homeController');
+const postController = require('../controllers/postController');
 
-router.post('/status', homeController.postStatus);
+router.post('/status', postController.postStatus);
 
-router.get('/status', homeController.getStatus);
+router.get('/status', postController.getStatus);
 
 module.exports = router;

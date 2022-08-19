@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = require('express').Router();
 const multer = require("multer");
-const homeController = require('../controllers/homeController');
+const storyController = require('../controllers/storyController');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,8 +17,8 @@ var upload = multer({ storage: storage })
 app.use(express.static(__dirname + '/public'));
 app.use('/uploads', express.static('uploads'));
 
-router.post('/story', upload.single("files"), homeController.postStory); //upload.single('story'),
+router.post('/story', upload.single("files"), storyController.postStory); //upload.single('story'),
 
-router.get('/story', homeController.getStory);
+router.get('/story', storyController.getStory);
 
 module.exports = router;

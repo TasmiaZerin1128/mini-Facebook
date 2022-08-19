@@ -21,9 +21,10 @@ exports.postStatus = (async (req, res) => {
 exports.getStatus = (async (req, res) => {
 
     try {
-        userID = authController.loggedInUser.name;
-        const allStatus = await status.find({ name: { $ne: userID } }).sort({ "time": -1 }).limit(10);        // -1 means descending  $ne for not equal to;
-        res.send(allStatus);
+        // userID = authController.loggedInUser.name;
+        // const allStatus = await status.find({ name: { $ne: userID } }).sort({ "time": -1 }).limit(10);        // -1 means descending  $ne for not equal to;
+        const statuses = await status.find().sort({ "time": -1 }).limit(10);
+        res.send(statuses);
     } catch (err) {
         res.status(400).send({ Fail: 'Statuses not found' });
     }
