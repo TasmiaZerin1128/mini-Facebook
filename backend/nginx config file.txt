@@ -1,0 +1,16 @@
+server {
+    listen                  9001;
+    listen                  [::]:9001;
+  
+  location /authenticate {
+        proxy_pass http://localhost:3000/api/authenticate;
+    }
+
+    location /post {
+        proxy_pass http://localhost:3001/api/post;
+    }
+    
+    location /story {
+        proxy_pass http://localhost:3002/api/story;
+    }
+}

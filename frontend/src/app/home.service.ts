@@ -10,7 +10,8 @@ import { story } from './shared/story';
 })
 export class HomeService {
 
-  endpoint: string = 'http://localhost:3000/api';
+  endPostpoint: string = 'http://localhost:9001/post';
+  endStorypoint: string = 'http://localhost:9001/story';
 
   allStatus: any;
 
@@ -31,19 +32,19 @@ export class HomeService {
    }
 
    postContent(content: any): Observable<any>{
-    return this.http.post(`${this.endpoint}/home/status`, content, {headers : this.headers});
+    return this.http.post(`${this.endPostpoint}`, content, {headers : this.headers});
   }
 
   getContents(){
-    return this.http.get<status>(`${this.endpoint}/home/status`,{headers : this.headers, observe: "response"});
+    return this.http.get<status>(`${this.endPostpoint}`,{headers : this.headers, observe: "response"});
   }
 
   postStory(story: any): Observable<any>{
-    return this.http.post(`${this.endpoint}/home/story`, story, {headers : this.storyHeader});
+    return this.http.post(`${this.endStorypoint}`, story, {headers : this.storyHeader});
   }
 
   getStories(){
-    return this.http.get<story>(`${this.endpoint}/home/story`,{headers : this.headers, observe: "response"});
+    return this.http.get<story>(`${this.endStorypoint}`,{headers : this.headers, observe: "response"});
   }
   
 

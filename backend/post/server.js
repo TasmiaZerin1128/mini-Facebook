@@ -27,9 +27,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Route Middlewares
 
-app.use('/api/home', postRoute);
+app.use('/api', postRoute);
 
 
-app.listen(4000,()=> console.log('Up and running'));
+app.listen(3001,()=> console.log('Up and running'));
 
 

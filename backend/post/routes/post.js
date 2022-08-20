@@ -5,8 +5,8 @@ const status = require('../model/status');
 const multer = require("multer");
 const postController = require('../controllers/postController');
 
-router.post('/status', postController.postStatus);
+router.post('/post', postController.postStatus);
 
-router.get('/status', postController.getStatus);
+router.get('/post', postController.getStatus);
 
 module.exports = router;

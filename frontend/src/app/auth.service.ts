@@ -20,7 +20,7 @@ class DecodedToken {
 })
 export class AuthService {
 
-  endpoint: string = 'http://localhost:3000/api';
+  endpoint: string = 'http://localhost:9001/authenticate';
   decodedToken= new DecodedToken();
   
   currentUser:any = [];
