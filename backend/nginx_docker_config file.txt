@@ -17,3 +17,12 @@ server {
 
 1. change port for nginx default config file - /etc/nginx/sites-enabled (create in available then link in enabled)
 2. set port in app config
+
+
+Docker config
+1. docker build . -t tasmia1128/name_as_wish
+2. docker run -p port:defined_port tasmia1128/name_as_wish
+3. images
+4. docker ps 
+5. docker log <container_id>
+6. docker kill <container_id>
