@@ -1,0 +1,131 @@
+[{
+  "_id": {
+    "$oid": "62d79ce8423ce7682e235fc6"
+  },
+  "name": "Tasmia Zerin",
+  "storyUUID": "534ba73c-8e69-4dc1-aaab-d431f08ca5aa",
+  "userID": "62d79ca8423ce7682e235fbd",
+  "time": {
+    "$date": {
+      "$numberLong": "1658297576633"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d79e1a423ce7682e235fd6"
+  },
+  "name": "Tasmia Zerin",
+  "storyUUID": "65708bcf-5e05-422f-adaa-0d7dbce16980",
+  "userID": "62d79ca8423ce7682e235fbd",
+  "time": {
+    "$date": {
+      "$numberLong": "1658297882216"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d7a4f9423ce7682e235ff0"
+  },
+  "name": "Jitesh Sureka",
+  "storyUUID": "136bb113-e19a-46d8-9cec-14360302d00c",
+  "userID": "62d7a4eb423ce7682e235fea",
+  "time": {
+    "$date": {
+      "$numberLong": "1658299641272"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d7a75d423ce7682e235ff6"
+  },
+  "name": "Jitesh Sureka",
+  "storyUUID": "0eae31f9-f1ff-4242-abea-6bd5f0bd533b",
+  "userID": "62d7a4eb423ce7682e235fea",
+  "time": {
+    "$date": {
+      "$numberLong": "1658300253153"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d8c7aaaaa4e34685b9ef70"
+  },
+  "name": "Jitesh Sureka",
+  "storyUUID": "c4213e50-f0c6-42f8-b4e8-72374736d6c4",
+  "userID": "62d7a4eb423ce7682e235fea",
+  "time": {
+    "$date": {
+      "$numberLong": "1658374058869"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d8c7f9aaa4e34685b9ef73"
+  },
+  "name": "Jitesh Sureka",
+  "storyUUID": "e9979969-52c0-4028-a57f-910ef3165902",
+  "userID": "62d7a4eb423ce7682e235fea",
+  "time": {
+    "$date": {
+      "$numberLong": "1658374137862"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d8c81caaa4e34685b9ef76"
+  },
+  "name": "Jitesh Sureka",
+  "storyUUID": "ef123606-77a1-4a95-bf7c-282fbfe7f11c",
+  "userID": "62d7a4eb423ce7682e235fea",
+  "time": {
+    "$date": {
+      "$numberLong": "1658374172974"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d8c898aaa4e34685b9ef80"
+  },
+  "name": "Jitesh Sureka",
+  "storyUUID": "22fbf2df-7145-4d18-b8d2-e8505e6f3baa",
+  "userID": "62d7a4eb423ce7682e235fea",
+  "time": {
+    "$date": {
+      "$numberLong": "1658374296160"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d8c90daaa4e34685b9ef8a"
+  },
+  "name": "Jitesh Sureka",
+  "storyUUID": "3245b3c3-7cf7-473f-9a0a-402f4d2ad057",
+  "userID": "62d7a4eb423ce7682e235fea",
+  "time": {
+    "$date": {
+      "$numberLong": "1658374413388"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62dcbdb70a0da0c992e92013"
+  },
+  "name": "Tasmia Zerin",
+  "storyUUID": "11b6545f-6c27-4484-aa12-11a77135852e",
+  "userID": "62d79ca8423ce7682e235fbd",
+  "time": {
+    "$date": {
+      "$numberLong": "1658633655671"
+    }
+  },
+  "__v": 0
+}]
