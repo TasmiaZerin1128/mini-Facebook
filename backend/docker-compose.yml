@@ -1,0 +1,64 @@
+version: "3"
+
+services:
+    nginx:
+        image: nginx
+        restart: unless-stopped
+        ports:
+            - 1000:9001
+        volumes:
+            - ./nginx.conf:/etc/nginx/sites-enabled/app
+        depends_on:
+            - authservice
+            - postservice
+            - storyservice
+
+    authservice:
+        build: ./authentication
+        restart: unless-stopped
+        depends_on:
+            - authdb
+
+    authdb:
+        image: mongo
+        ports:
+            - 30000:30000
+        restart: unless-stopped
+        volumes:
+            - /mongo:/data/db
+
+    postservice:
+        build: ./post
+        restart: unless-stopped
+        depends_on:
+            - postdb
+
+    postdb:
+        image: mongo
+        ports:
+            - 30001:30001
+        restart: unless-stopped
+        volumes:
+            - /mongo:/data/db
+
+    storyservice:
+        build: ./story
+        restart: unless-stopped
+        depends_on:
+            - storydb
+            - storyobjectdb
+
+    storydb:
+        image: mongo
+        ports:
+            - 30002:30002
+        volumes:
+            - /mongo:/data/db
+        restart: unless-stopped
+
+    storyobjectdb:
+        image: minio/minio:latest
+        environment:
+            - MINIO_ACCESS_KEY=w6cNXuAj9BGXOCyo
+            - MINIO_SECRET_KEY=Vyl6KQoQzGJWT28ngX2T0s9SwjjzWtMV
+        command: server --address 127.0.0.1:9000 /data

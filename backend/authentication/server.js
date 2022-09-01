@@ -31,7 +31,6 @@ app.use('/api', authRoute);
 
 app.listen(3000,()=> console.log('Up and running'));
 
-<h1>HELLO</h1>
 
 
 
