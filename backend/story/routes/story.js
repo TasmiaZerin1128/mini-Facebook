@@ -26,3 +26,4 @@ router.get('/story/:id', storyController.storyInd);
 module.exports = router;
 
 //doneee donee donee
+//hoye jaaa
