@@ -1,0 +1,90 @@
+:host {
+    background-color: #3b5998;
+    height: 100vh;
+}
+
+img{
+    margin-top: 65%;
+    margin-left: 10%;
+}
+
+form{
+    margin: 20px;
+    text-align: center;
+}
+
+.card{
+    margin-top: 35%;
+    padding: 20px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+}
+
+.input-group{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px; 
+}
+
+input{
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+    color: white;
+}
+
+input:focus{
+    background: rgba(23, 46, 97, 0.14);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+    color: white;
+}
+
+::placeholder{
+    color:rgb(201, 210, 223);
+}
+
+.error{
+    /* margin-top: 20px; */
+    font-size: 15px;
+    color: #911616;
+    padding: 10px 10px;
+    background: rgba(238, 90, 74, 0.264);
+    border-radius: 8px;
+    /* -webkit-backdrop-filter: blur(5.4px);  */
+    border: 1px solid rgba(209, 12, 12, 0.29);
+}
+
+.btn{
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #3b5998; 
+    color: white;
+}
+
+.btn:disabled{
+    background-color: #272f42; 
+    color: rgba(255, 255, 255, 0.544);
+}
+
+.card-text{
+    color: rgb(12, 38, 78);
+    margin-top: 20px;
+}
+
+.card-text a{
+    color: white;
+    text-decoration: none;
+}

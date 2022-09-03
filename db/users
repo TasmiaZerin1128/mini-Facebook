@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "62d79ca8423ce7682e235fbd"
+  },
+  "name": "Tasmia Zerin",
+  "email": "bsse1128@iit.du.ac.bd",
+  "password": "$2a$10$fIb3oTjQhAQA.LQ4Y9L9NOkvr9v7YafjMr8uB6NAwpzgSVjXYMkI2",
+  "dob": {
+    "$date": {
+      "$numberLong": "1656460800000"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d7a4eb423ce7682e235fea"
+  },
+  "name": "Jitesh Sureka",
+  "email": "bsse1115@iit.du.ac.bd",
+  "password": "$2a$10$.g7S2qcAzmZUTLAUpcnpZeBBp/xX8h2qmVvNAr38TAiHG541ASpYq",
+  "dob": {
+    "$date": {
+      "$numberLong": "1656288000000"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d8c974aaa4e34685b9ef9a"
+  },
+  "name": "Mustahid",
+  "email": "bsse1114@iit.du.ac.bd",
+  "password": "$2a$10$zDYD33vkvgBtChJZTfqkaulWkyQZYA4Tyt7JyOecILQhgexwmvs16",
+  "dob": {
+    "$date": {
+      "$numberLong": "1656979200000"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62dcbbe70a0da0c992e92007"
+  },
+  "name": "Jafar Mahin",
+  "email": "bsse1109@iit.du.ac.bd",
+  "password": "$2a$10$2zaFZHQqDDHuWBg6TDFE6eqC9cCcazgONhXdAuU9x7PJY11rEWbam",
+  "dob": {
+    "$date": {
+      "$numberLong": "1658102400000"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62dcbdd90a0da0c992e9201c"
+  },
+  "name": "Rafed Bhaiya",
+  "email": "rafed@rafed.com",
+  "password": "$2a$10$/Yfw9AFt9PgJBKxDVTm.r.flAbuaKMfr4RxI84lHA/AtaZE7YGXMu",
+  "dob": {
+    "$date": {
+      "$numberLong": "1657756800000"
+    }
+  },
+  "__v": 0
+}]

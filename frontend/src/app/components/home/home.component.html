@@ -1,0 +1,90 @@
+<div [hidden]="fullHidden" class="fullS">
+  <button class="closeButton" (click)="close()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#ffffff" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+  </svg>
+  </button>
+  <div class="fullImage">
+    <img class="fullStory" [src]="fullImage">
+  </div>
+</div>
+<div class="white-head">
+  <img src="../../../assets/images/miniFB_transparent.svg" id="fbLogo">
+  <img src="../../../assets/images/s6.png" class="propic-self">
+  <h5 class="name-self">{{username}}</h5>
+</div>
+<div class="container">
+ <div class="row">
+  <div class="col friends">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#07224dda" class="bi bi-people-fill friendIcon" viewBox="0 0 16 16">
+      <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+      <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+    </svg>
+    <div *ngFor="let user of fetchedUsers">
+      <div class="friendpic-name">
+      <img src="../../../assets/images/fbRound.jpg" class="friend-pic" alt="...">
+      <h5>{{user.name}}</h5>
+    </div>
+    </div>
+  </div>
+  <div class="col-md-10 align-self-start">
+    <div class="write-post">
+    <input type="text" class="form-control" id="post" placeholder="{{placeholderText}}" (click)="goToPost()">
+    </div>
+    <div class="stories">
+    <div class="card mine text-white">
+      <div class="card-img"></div>
+      <div class="card-img-overlay center-dot">
+        <input type="file" id="storyUpload" name="files" accept="image/*" (change)="upload($event)" #file>
+        <button class="dot" (click)="file.click()">
+          <h2 style="color:#2e4b88;">+</h2>
+        </button>
+        <h6 class="card-title" style="margin-top:8.5rem;"></h6>
+      </div>
+    </div>
+    <div *ngFor="let story of fetchedStories">
+      <div class="card bg-dark text-white others" (click)="showFullImage(story)">
+        <img src={{story.storyUUID}} class="card-img" alt="...">
+        <div class="card-img-overlay grad">
+          <h6 class="card-title" style="margin-top:8.5rem;">{{story.name}}</h6>
+        </div>
+      </div>
+    </div>
+    <div class="next-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-arrow-right-circle-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+      </svg>
+    </div>
+  </div>
+  <div class="posts">
+    <div class="singlePost" *ngFor="let status of fetchedStatuses">
+      <div class="card text-white single-post">
+        <div class="card-body">
+          <div class="propic-name">
+            <img src="../../../assets/images/fbRound.jpg" class="pro-pic" alt="...">
+            <div class="nameTime">
+              <h5 class="card-title name">{{status.name}}</h5>
+              <h6 class="time" style="font-size: 13px; color: #c2c2c2;">{{status.time}}</h6>
+            </div>
+          </div>
+          <p class="card-text" style="color: white;">{{status.content}}</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div> 
+    
+     <button class="logout" (click)="logout()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#2e4b88" class="bi bi-box-arrow-right"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+        <path fill-rule="evenodd"
+          d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+      </svg>
+    </button>
+  </div>
+  </div>

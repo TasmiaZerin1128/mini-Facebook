@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="col">
+        <div class="row head">
+            <h4 style="text-align: center;">Create Post</h4>
+            <hr>
+        </div>
+        <br>
+        <div class="row post-area">
+            <div class="propic-name">
+                <img src="../../../assets/images/s5.png" class="pro-pic" alt="...">
+                <h5 class="card-title name" style="color: white;">{{this.username}}</h5>
+            </div>
+            <textarea type="text" class="form-control" placeholder="What's on your mind?" [(ngModel)]="postContent"></textarea>
+        </div>
+        <div class="row post">
+            <button (click)="submitPost()">Post</button>
+        </div>
+    </div>
+</div>
