@@ -14,13 +14,15 @@ exports.postStory = (async (req, res) => {
 
     var uuidName = crypto.randomUUID();
 
+    var bucketname = 'minifb';
+
     var metaData = {
         'Content-Type': 'image'
     }
 
     try {
         console.log(JSON.stringify(req.body));
-        minioClient.fPutObject('minifb', uuidName, req.file.path, metaData, function (err, etag) {
+        minioClient.fPutObject(bucketname, uuidName, req.file.path, metaData, function (err, etag) {
             if (err) return console.log(err)
             console.log('File uploaded successfully. ' + uuidName)
             // Delete example_file.txt

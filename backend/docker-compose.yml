@@ -66,10 +66,12 @@ services:
 
     storyobjectdb:
         image: minio/minio:latest
+        ports:
+            - 9000:9000
         environment:
-            - MINIO_ROOT_USER=w6cNXuAj9BGXOCyo
-            - MINIO_ROOT_PASSWORD=Vyl6KQoQzGJWT28ngX2T0s9SwjjzWtMV
-        command: server --address 0.0.0.0:9000 /data
+            - MINIO_ROOT_USER=minioadmin
+            - MINIO_ROOT_PASSWORD=minioadmin
+        command: server --address 127.0.0.1:9000 /data
 
     mc:
         image: minio/mc:latest
@@ -77,7 +79,7 @@ services:
             - storyobjectdb
         entrypoint: >
             /bin/sh -c "
-            /usr/bin/mc config host add myminio http://minio:9000 w6cNXuAj9BGXOCyo Vyl6KQoQzGJWT28ngX2T0s9SwjjzWtMV;
+            /usr/bin/mc config host add myminio http://minio:9000 minioadmin minioadmin;
             /usr/bin/mc rm -r --force myminio/minifb;
             /usr/bin/mc mb myminio/minifb;
             /usr/bin/mc policy set public myminio/minifb;
