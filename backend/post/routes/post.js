@@ -7,6 +7,6 @@ const postController = require('../controllers/postController');
 
 router.post('/post', postController.postStatus);
 
-router.get('/post', postController.getStatus);
+router.get('/post/:_id', postController.getStatus);
 
 module.exports = router;
