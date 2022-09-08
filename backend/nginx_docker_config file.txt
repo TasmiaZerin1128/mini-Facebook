@@ -26,3 +26,7 @@ Docker config
 4. docker ps 
 5. docker log <container_id>
 6. docker kill <container_id>
+
+Docker Compose:
+1. docker-compose build
+2. docker-compose up
