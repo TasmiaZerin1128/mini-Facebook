@@ -14,34 +14,41 @@ services:
             - storyservice
 
     authservice:
+        container_name: authservice
         build: ./authentication
         restart: unless-stopped
+        environment:
+            - DB_CONNECT_LOCAL=mongodb://authdb:27017/miniFBauth
         depends_on:
             - authdb
 
     authdb:
+        container_name: authdb
         image: mongo
         ports:
-            - 30000:30000
+            - 27017:27017
         restart: unless-stopped
         volumes:
             - /mongo:/data/db
 
     postservice:
+        container_name: postservice
         build: ./post
         restart: unless-stopped
         depends_on:
             - postdb
 
     postdb:
+        container_name: postdb
         image: mongo
         ports:
-            - 30001:30001
+            - 27019:27017
         restart: unless-stopped
         volumes:
             - /mongo:/data/db
 
     storyservice:
+        container_name: storyservice
         build: ./story
         restart: unless-stopped
         depends_on:
@@ -49,9 +56,10 @@ services:
             - storyobjectdb
 
     storydb:
+        container_name: storydb
         image: mongo
         ports:
-            - 30002:30002
+            - 27020:27017
         volumes:
             - /mongo:/data/db
         restart: unless-stopped

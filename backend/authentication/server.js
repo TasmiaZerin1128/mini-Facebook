@@ -13,8 +13,12 @@ dotenv.config();
 
 
 //connect to DB
-mongoose.connect(process.env.DB_CONNECT_LOCAL, { useNewUrlParser: true },() => 
+mongoose.connect(process.env.DB_CONNECT_LOCAL, { useNewUrlParser: true },(err, client) => {
+    if (err) {
+        return console.log('Cannot connect '+ err);
+    }
     console.log('Connected to DB')
+}
 );
 
 //Middlewares
