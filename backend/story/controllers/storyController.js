@@ -8,11 +8,19 @@ const server = require('../server');
 
 exports.postStory = (async (req, res) => {
 
+    console.log('hello from post story');
+
     const minioClient = minio();
 
-    //PutObject(bucketName, objectName, stream, size, metaData[, callback])
+    minioClient.makeBucket('minifb', 'us-east-1', function(err) {
+        if (err) return console.log(err)
 
-    var uuidName = crypto.randomUUID();
+        console.log('Bucket created successfully');
+    });
+
+    var uuidName = crypto.randomUUID() + '.png';
+
+    var bucketname = 'minifb';
 
     var metaData = {
         'Content-Type': 'image'
@@ -20,7 +28,7 @@ exports.postStory = (async (req, res) => {
 
     try {
         console.log(JSON.stringify(req.body));
-        minioClient.fPutObject('minifb', uuidName, req.file.path, metaData, function (err, etag) {
+        minioClient.fPutObject(bucketname, uuidName, req.file.path, metaData, function (err, etag) {
             if (err) return console.log(err)
             console.log('File uploaded successfully. ' + uuidName)
             // Delete example_file.txt
@@ -59,12 +67,45 @@ exports.getStory = (async (req, res) => {
     }
 });
 
+exports.storyInd = ((req, res) =>{
+    try {
+        let data;
+
+        minioClient = minio();
+
+        minioClient.getObject('minifb', req.params.id, (err, objStream) => {
+
+            console.log('DHUKSEE');
+            if(err) {
+               
+                return res.status(404).send({ message: "Image not found" });
+            } 
+            //console.log("req is " + req.params.id);
+            objStream.on('data', (chunk) => {
+                data = !data ? new Buffer(chunk) : Buffer.concat([data, chunk]);
+            });
+            objStream.on('end', () => {
+                res.writeHead(200, { 'Content-Type': 'image/png' });
+                res.write(data);
+                res.end();
+            });
+        });
+    } catch (error) {
+        res.status(500).send({ message: "Internal Server Error at fetching image" });
+    }
+});
+
+//chocolate
+
 function minio() {
+
     return new Minio.Client({
-        endPoint: '127.0.0.1',
+        endPoint: 'storyobjectdb',
         port: 9000,
         useSSL: false,
-        accessKey: process.env.ACCESS_KEY,
-        secretKey: process.env.SECRET_KEY
+        accessKey: 'minioadmin',
+        secretKey: 'minioadmin'
+        // accessKey: process.env.ACCESS_KEY,
+        // secretKey: process.env.SECRET_KEY
     });
 }

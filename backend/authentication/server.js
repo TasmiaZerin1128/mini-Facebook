@@ -13,13 +13,9 @@ dotenv.config();
 
 
 //connect to DB
-mongoose.connect(process.env.DB_CONNECT_LOCAL, { useNewUrlParser: true },(err, client) => {
-    if (err) {
-        return console.log('Cannot connect '+ err);
-    }
-    console.log('Connected to DB')
-}
-);
+mongoose.connect(process.env.DB_CONNECT_LOCAL, { useNewUrlParser: true })
+    .then(() => console.log('Connected to DB'))
+    .catch(err => console.log('Error ' + err));
 
 //Middlewares
 app.use(express.json());

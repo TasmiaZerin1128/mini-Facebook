@@ -50,8 +50,8 @@ export class HomeComponent implements OnInit {
 
   file: File | null = null;
 
-  minioHost = "127.0.0.1";
-  port = "9000";
+  minioHost = "storyobjectdb";
+  port = "9001";
   bucket = "minifb";
   
   ngOnInit(): void {
@@ -113,7 +113,8 @@ export class HomeComponent implements OnInit {
       this.allStory = data.body;
       this.fetchedStories = this.allStory;
       for(let i=0;i<this.fetchedStories.length;i++){
-        this.fetchedStories[i].storyUUID = "http://"+this.minioHost+":"+this.port+"/"+this.bucket+"/"+this.fetchedStories[i].storyUUID;
+        this.fetchedStories[i].storyUUID = "http://localhost:100/story/" + this.fetchedStories[i].storyUUID;
+        //this.fetchedStories[i].storyUUID = "http://"+this.minioHost+":"+this.port+"/"+this.bucket+"/"+this.fetchedStories[i].storyUUID;
         console.log(this.fetchedStories[i].storyUUID);
       }
     });

@@ -2,12 +2,13 @@ version: "3"
 
 services:
     nginx:
+        container_name: nginx
         image: nginx
         restart: unless-stopped
         ports:
-            - 1000:9001
+            - 100:100
         volumes:
-            - ./nginx.conf:/etc/nginx/sites-enabled/app
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - authservice
             - postservice
@@ -18,7 +19,7 @@ services:
         build: ./authentication
         restart: unless-stopped
         environment:
-            - DB_CONNECT_LOCAL=mongodb://authdb:27017/miniFBauth
+            DB_URL: mongodb://authdb:27017/authservice
         depends_on:
             - authdb
 
@@ -26,16 +27,19 @@ services:
         container_name: authdb
         image: mongo
         ports:
-            - 27017:27017
+            - 27018:27017
         restart: unless-stopped
         volumes:
-            - /mongo:/data/db
+            - /auth:/data/db
 
     postservice:
         container_name: postservice
         build: ./post
         restart: unless-stopped
+        environment:
+            DB_URL: mongodb://postdb:27017/postservice
         depends_on:
+            - authservice
             - postdb
 
     postdb:
@@ -45,28 +49,42 @@ services:
             - 27019:27017
         restart: unless-stopped
         volumes:
-            - /mongo:/data/db
+            - /post:/data/db
 
     storyservice:
         container_name: storyservice
         build: ./story
         restart: unless-stopped
+        environment:
+            DB_URL: mongodb://storydb:27017/storyservice
         depends_on:
+            - authservice
             - storydb
             - storyobjectdb
 
-    storydb:
+    storydb:    
         container_name: storydb
         image: mongo
         ports:
             - 27020:27017
         volumes:
-            - /mongo:/data/db
+            - /story:/data/db
         restart: unless-stopped
 
     storyobjectdb:
+        container_name: storyobjectdb
         image: minio/minio:latest
+        ports:
+            - 9000:9000
+            - 9001:9001
         environment:
-            - MINIO_ACCESS_KEY=w6cNXuAj9BGXOCyo
-            - MINIO_SECRET_KEY=Vyl6KQoQzGJWT28ngX2T0s9SwjjzWtMV
-        command: server --address 127.0.0.1:9000 /data
+            - MINIO_ROOT_USER=minioadmin
+            - MINIO_ROOT_PASSWORD=minioadmin
+        command: server --console-address ":9001" /data
+        volumes:
+            - /minio_data:/data
+
+volumes:
+    auth:
+    post:
+    story:

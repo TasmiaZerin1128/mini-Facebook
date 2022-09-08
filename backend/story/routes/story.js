@@ -21,4 +21,9 @@ router.post('/story', upload.single("files"), storyController.postStory); //uplo
 
 router.get('/story', storyController.getStory);
 
+router.get('/story/:id', storyController.storyInd);
+
 module.exports = router;
+
+//doneee donee donee
+//hoye jaaa
