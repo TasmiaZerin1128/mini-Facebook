@@ -1,5 +1,5 @@
 server {
-    listen                  100;
+    listen 100;
   
   location /authenticate {
         proxy_pass http://authservice:3000/api/authenticate;
@@ -29,3 +29,17 @@ Docker config
 Docker Compose:
 1. docker-compose build
 2. docker-compose up
+
+
+Docker compose for Whole project
+1. fix nginx.conf file, add =>
+(root /var/www/html;
+ index index.html;)
+
+2. Make Docker file for whole project
+3. set the image names as dockerID/.....
+
+Swarm:
+1. docker compose build
+2. docker compose push -  push will be done to dockerhub id (login first)
+3. docker stack deploy --compose-file docker-compose.yml minifbstack

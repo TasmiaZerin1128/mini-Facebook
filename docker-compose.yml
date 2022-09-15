@@ -2,29 +2,29 @@ version: "3"
 
 services:
     nginx:
-        container_name: nginx
-        image: nginx
+        image: tasmia1128/nginx
+        build: .
         restart: unless-stopped
         ports:
             - 100:100
         volumes:
-            - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - authservice
             - postservice
             - storyservice
 
-    frontend:
-        container_name: frontend
-        build: ./frontend
-        restart: unless-stopped
-        ports:
-            - 4200:4200
-        depends_on:
-            - nginx
+    # frontend:
+    #     container_name: frontend
+    #     build: ./frontend
+    #     restart: unless-stopped
+    #     ports:
+    #         - 4200:4200
+    #     depends_on:
+    #         - nginx
 
     authservice:
-        container_name: authservice
+        image: tasmia1128/authservice
         build: ./backend/authentication
         restart: unless-stopped
         environment:
@@ -42,7 +42,7 @@ services:
             - /auth:/data/db
 
     postservice:
-        container_name: postservice
+        image: tasmia1128/postservice
         build: ./backend/post
         restart: unless-stopped
         environment:
@@ -61,7 +61,7 @@ services:
             - /post:/data/db
 
     storyservice:
-        container_name: storyservice
+        image: tasmia1128/storyservice
         build: ./backend/story
         restart: unless-stopped
         environment:
