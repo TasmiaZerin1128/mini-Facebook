@@ -16,6 +16,7 @@ server {
 
 1. change port for nginx default config file - /etc/nginx/sites-enabled (create in available then link in enabled)
 2. set port in app config
+3. sudo systemctl start nginx
 
 
 Docker config
