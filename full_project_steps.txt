@@ -16,6 +16,7 @@
     b. make a nginx.conf file
     c. frontend url = http://localhost:nginx port/....
     d. nginx proxy pass url = http://servicename(yml file e servicename jeta dewa):... (as containerized now)
+    e. will run on 4200 port in the browser
 
 5. Using Docker-compose for whole
     a. make a service with build: . (nginx and frontend one service)
@@ -25,3 +26,4 @@
     e. check dist path in dockerfile
     f. set root and index in nginx
     g. url all same 
+    h. will run on nginx port in the browser
