@@ -1,0 +1,23 @@
+1. Monolithic
+    a. everything seperated, frontend endpoint 4200, backend 3000 (only one), url different
+
+2. Using nginx
+    a. setting up nginx in /etc/nginx/sites-available (make app.conf), make link in sites-enabled
+    b. write configuration in app, listen to 100 or any, declare locations, proxy pass will have different ports, (http://localhost:3000/auth)
+    # url e ekhon localhost thakbe, every service er jonno different port r path
+    c. make seperate folder and db for each service (prottek ta alada server hobe)
+
+3. Using Docker
+    a. every server will contain a docker file
+    b. docker build, docker run every service
+
+4. Using Docker-compose for only backend and nginx
+    a. make a docker-compose file
+    b. make a nginx.conf file
+    c. frontend url = http://localhost:nginx port/....
+    d. nginx proxy pass url = http://servicename(yml file e servicename jeta dewa):... (as containerized now)
+
+5. Using Docker-compose for whole
+    a. make a service with build: . (nginx and frontend one service)
+    b. docker-compose and nginx will be in the root folder
+    c. url all same 
