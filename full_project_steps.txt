@@ -20,4 +20,8 @@
 5. Using Docker-compose for whole
     a. make a service with build: . (nginx and frontend one service)
     b. docker-compose and nginx will be in the root folder
-    c. url all same 
+    c. make a dockerfile in the root folder to copy nginx
+    d. ng build in frontend to make dist folder
+    e. check dist path in dockerfile
+    f. set root and index in nginx
+    g. url all same 
